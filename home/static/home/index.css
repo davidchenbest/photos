@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper{
+    margin: 0 2em;
+}
+.eachPhotoCon{
+    padding: 1em;
+    border: 2px solid grey;
+    margin-bottom: 2em;
+}
+
+.imgCon{
+    padding: .5em;
+    display: flex;
+    align-items: flex-start;
+    
+}
+.imgCon img{
+    border: 1px solid grey;
+    padding: .2em;
+    
+}
+
+.imgGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    row-gap: 1em;
+    column-gap: 1em;
+
+}
+.imgGrid img{
+    width: 100%;
+}

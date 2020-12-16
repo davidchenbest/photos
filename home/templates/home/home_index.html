@@ -1,0 +1,27 @@
+{% extends 'home/baseLayout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% for photo in photos %}
+<div class="eachPhotoCon">
+    <p>{{photo.title}}</p>
+    <p>{{photo.description}}</p>
+    <p>{{photo.getDateFormat}}</p>
+    <div class='imgCon imgGrid'>
+        <img src="{{photo.photos.filter.0.photo.url}}" alt="photo">
+        {% if photo.photos.filter|length > 1 %}
+        <form method="POST" action="{% url 'home:detail' %}"> {% csrf_token %}
+            <input type='hidden' name="id" value="{{photo.id}}" />
+            <input type="submit" value="More" />
+        </form>
+
+        {% endif %}
+
+        <!-- {% for img in photo.photos.filter %}
+            <img src="{{img.photo.url}}" alt="photo">
+            {% endfor %} -->
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

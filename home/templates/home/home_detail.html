@@ -1,0 +1,19 @@
+{% extends 'home/baseLayout.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block content %}
+{% for photo in photos %}
+<div class="eachPhotoCon">
+    <p>{{photo.title}}</p>
+    <p>{{photo.description}}</p>
+    <p>{{photo.getDateFormat}}</p>
+    <div class='imgCon imgGrid'>
+
+        {% for img in photo.photos.filter %}
+        <img src="{{img.photo.url}}" alt="photo">
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
